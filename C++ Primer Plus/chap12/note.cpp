@@ -14,6 +14,6 @@ Class::Class(int con) : INT(con){}     //给常量赋值
 int main()
 {
     Class a;
-    Class b = a; // <=> Class b = Class(a);
+    Class b = a; // <=> Class b = Class(a); 调用了复制构造函数
 
 }
