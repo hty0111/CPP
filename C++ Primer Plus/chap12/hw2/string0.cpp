@@ -15,7 +15,7 @@ String::String()
     len = 5;
     str = new char[5];
     strcpy(str, "NULL");
-    cout << "\"" << str << "\" created by default constructor, " << strNum << "left.\n";
+    cout << "\"" << str << "\" created by default constructor, " << strNum << " left.\n";
 }
 
 String::String(const char * s)
@@ -24,7 +24,7 @@ String::String(const char * s)
     len = strlen(s);
     str = new char[len + 1];
     strcpy(str, s);
-    cout << "\"" << str << "\" created by non-default constructor, " << strNum << "left.\n";
+    cout << "\"" << str << "\" created by non-default constructor, " << strNum << " left.\n";
 }
 
 String::String(const String & s)
@@ -34,7 +34,7 @@ String::String(const String & s)
     len = s.len;
     str = new char[len + 1];
     strcpy(str, s.str);    //深度复制，而不是传递地址
-    cout << "\"" << str << "\" created by copy constructor, " << strNum << "left.\n";
+    cout << "\"" << str << "\" created by copy constructor, " << strNum << " left.\n";
 }
 
 String::~String()
