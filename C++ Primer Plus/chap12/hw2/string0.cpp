@@ -29,7 +29,6 @@ String::String(const char * s)
 
 String::String(const String & s)
 {
-    std::cout << "!\n";
     strNum++;
     len = s.len;
     str = new char[len + 1];
@@ -42,6 +41,11 @@ String::~String()
     strNum--;
     std::cout << "\"" << str << "\"deleted, " << strNum << " left.\n";
     delete [] str;
+}
+
+String::operator string()
+{
+    return str;
 }
 
 String & String::operator=(const String & s)
@@ -95,4 +99,44 @@ std::istream & operator>>(std::istream & is, String & s)
     while (is && is.get() != '\n')
         continue;
     return is;
+}
+
+void String::selfLower()
+{
+    for (int i = 0; i < len; i++)
+    {
+        str[i] = std::tolower(str[i]);
+    }
+}
+
+void String::selfUpper()
+{
+    for (int i = 0; i < len; i++)
+    {
+        str[i] = std::toupper(str[i]);
+    }
+}
+
+String Lower(const String & s)
+{
+    String temp = s;
+    temp.selfLower();
+    return temp;
+}
+
+String Upper(const String & s)
+{
+    String temp = s;
+    temp.selfUpper();
+    return temp;
+}
+int charInString(const String & s, char ch)
+{
+    int count = 0;
+    for (int i = 0; i < s.len; i++)
+    {
+        if (ch == s.str[i])
+            count++;
+    }
+    return count;
 }

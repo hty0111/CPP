@@ -6,6 +6,7 @@
 #define C_PRIMER_PLUS_STRING0_H
 
 #include <iostream>
+using std::string;
 
 class String {
 private:
@@ -18,14 +19,21 @@ public:
     String(const char *);   //非默认构造器
     String(const String &); //复制构造器
     ~String();  //析构器
-    int length() const { return len; }
+    operator string();      //转换函数
+
     String & operator=(const String &);
     String & operator=(const char *);
     char & operator[](int i);
     friend String operator+(String &, String &);
     friend std::ostream & operator<<(std::ostream & os, const String & s);
     friend std::istream & operator>>(std::istream & is, String & s);
+
+    int length() const { return len; }
     static int howMany() { return strNum; }
+    void selfLower();
+    void selfUpper();
+    friend String Lower(const String &);
+    friend int charInString(const String &, char ch);  //返回字符串中特定字符的数量
 };
 
 
