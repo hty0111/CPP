@@ -3,7 +3,6 @@
 //
 
 #include <iostream>
-#include <string>
 #include <vector>
 #include <array>
 
@@ -46,7 +45,7 @@ int main()
     struct my_register
     {
         unsigned int SN : 4;        //4位的SN值
-        unsigned int : 4;           //保留4位
+        unsigned int : 4;           //留出4位
         bool goodIn : 1;
     };
     my_register reg = {10, true};
@@ -66,7 +65,7 @@ int main()
     pt = (int *) 0xB8000000;    //不能用整型赋值
     delete pt;
     int * psome = new int [10];
-    delete [] psome;
+    delete [] psome;            //删除数组
     
     int n = 4;
     vector<int> vi(n);          //n个元素的整型数组，不能初始化
