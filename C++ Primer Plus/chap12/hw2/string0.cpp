@@ -130,6 +130,7 @@ String Upper(const String & s)
     temp.selfUpper();
     return temp;
 }
+
 int charInString(const String & s, char ch)
 {
     int count = 0;

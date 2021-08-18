@@ -21,5 +21,4 @@ int main()
     char ch = 'z';
     int count = charInString(zxa, ch);
     cout << count << " * \"" << ch << "\" in " << zxa << endl;
-
 }
