@@ -14,7 +14,12 @@ public:
     {
         hour = min = 0;
     }
-    explicit Time(int min, int hour = 0)    //必须显示转换，只有一个构造参数时使用
+    Time(float f)   //隐式转换构造函数，只有一个构造参数时使用
+    {
+        hour = (int) f;
+        min = (f - hour) * 100;
+    }
+    explicit Time(int min, int hour = 0)    //显式转换构造函数，只有一个构造参数时使用
     {
         this->hour = hour;
         this->min = min;
@@ -36,8 +41,8 @@ public:
 
 int main()
 {
-    Time time1(10, 1);
-    Time time2(20);
+    Time time1(10);  //必须显式调用转换构造函数
+    Time time2 = 1.2;    //可以隐式调用转换构造函数
     Time sum;
     sum = time1 + time2;
     cout << sum;

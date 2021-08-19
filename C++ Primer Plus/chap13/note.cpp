@@ -29,7 +29,8 @@ public:
     int sum()   { return sumBase + z; }     //派生类中定义的函数会覆盖基类中所有同名函数，并非重载
     friend ostream & operator<<(ostream & os, Derived & d)
     {
-        os << d.sum();
+        os << (Base &) d;
+//        os << d.sum();
         return os;
     }
 };
