@@ -11,11 +11,10 @@ void mul(int & t, int times = 2) { t *= times; }    //声明时从右向左添�
 struct my_struct{string name; int age;};
 template <class T>   //模板，并非函数定义，class可替换为typename
 void Swap(T &x, T &y) {x ^= y; y ^= x; x ^= y;}     //隐式实例化
-template void Swap<char> (char &, char &);    //显式实例化，使用Swap()模板生成double类型的函数定义
-template <> void Swap<my_struct> (my_struct &s1, my_struct &s2)     //显式具体化，优先级高于模板
-        {
+template void Swap<char> (char &, char &);    //显式实例化，使用Swap()模板生成char类型的函数定义
+template <> void Swap<my_struct> (my_struct &s1, my_struct &s2) {    //显式具体化，优先级高于模板
     Swap(s1.age, s2.age);
-        }
+}
 
 template<class T1, class T2>
 auto f(int x, float y) -> decltype(x+y);    //在xy定义后确定函数的返回类型
