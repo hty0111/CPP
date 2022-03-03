@@ -33,9 +33,9 @@ int main()
     Grand * pg = new Grand;
     Superb * ps;
     Magnificent *pm = new Magnificent;
-    if (ps = dynamic_cast<Superb *>(pg))    //将基类指针赋给子类，不安全，返回空指针
+    if ((ps = dynamic_cast<Superb *>(pg)))    //将基类指针赋给子类，不安全，返回空指针
         ps->say();
-    if (ps = dynamic_cast<Superb *>(pm))    //安全，返回Superb类型的指针
+    if ((ps = dynamic_cast<Superb *>(pm)))    //安全，返回Superb类型的指针
         cout << "Now processing type " << typeid(*pg).name() << "!\n";
         ps->say();
         if (typeid(Magnificent) == typeid(*ps))
